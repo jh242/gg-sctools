@@ -19,7 +19,7 @@ const commoditySchema = new mongoose.Schema({
   updated: Date,
 });
 
-commoditySchema.index({ name: 1 }, { collation: { locale: 'en', strength: 1 } });
+commoditySchema.index({ name: 1 }, { collation: { locale: 'en', strength: 1 }, unique: true });
 
 const commodityModel = mongoose.model('Commodities', commoditySchema);
 
