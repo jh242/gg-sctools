@@ -9,7 +9,7 @@ exports.getAllCommodities = async (req, res) => {
 exports.getOneCommodity = async (req, res) => {
   const { name } = req.params;
 
-  const commodity = await commodityModel.find({ name });
+  const commodity = await commodityModel.findOne({ name }).collation({ locale: 'en', strength: 1 });
 
   res.send(commodity);
 };

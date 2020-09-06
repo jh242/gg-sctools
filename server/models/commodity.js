@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const commoditySchema = new mongoose.Schema({
   name: String,
+  type: String,
   buyLocations: [{
     price: Number,
     location: { type: mongoose.Schema.Types.ObjectId, ref: 'Tradeports' },
@@ -10,8 +11,15 @@ const commoditySchema = new mongoose.Schema({
     price: Number,
     location: { type: mongoose.Schema.Types.ObjectId, ref: 'Tradeports' },
   }],
+  records: [{
+    transaction: String,
+    price: Number,
+    location: { type: mongoose.Schema.Types.ObjectId, ref: 'Tradeports' },
+  }],
   updated: Date,
 });
+
+commoditySchema.index({ name: 1 }, { collation: { locale: 'en', strength: 1 } });
 
 const commodityModel = mongoose.model('Commodities', commoditySchema);
 
