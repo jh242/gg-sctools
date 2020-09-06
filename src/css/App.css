@@ -1,0 +1,15 @@
+.home {
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.info {
+  width: auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
